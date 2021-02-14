@@ -1,4 +1,5 @@
 set number
+set relativenumber
 set colorcolumn=80
 set nocompatible              " required
 filetype off                  " required
@@ -13,28 +14,27 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 Plugin 'tmhedberg/SimpylFold'
-Plugin 'vim-scripts/indentpython.vim'
 
 " Color schemes
 Plugin 'jnurmine/Zenburn'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'sainnhe/gruvbox-material'
 
-Plugin 'kien/ctrlp.vim'
-
-Plugin 'vim-syntastic/syntastic' " syntax checking (several languages)
-
-" Language pack
-Plugin 'sheerun/vim-polyglot'
-
 Plugin 'tpope/vim-surround'
 
-Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plugin 'vim-airline/vim-airline'
 
-" File browsing
+" File browsing/navigation
 Plugin 'scrooloose/nerdtree'
+Plugin 'kien/ctrlp.vim'
+
+" Extra syntax
+Plugin 'sheerun/vim-polyglot'
+Plugin 'vim-syntastic/syntastic' " syntax checking (several languages)
+Plugin 'yaunj/vim-yara'
 
 " Python stuff
+Plugin 'vim-scripts/indentpython.vim'
 Plugin 'davidhalter/jedi-vim' 
 Plugin 'jmcantrell/vim-virtualenv'
 Plugin 'petobens/poet-v'
@@ -44,9 +44,9 @@ Plugin 'psf/black' " black formatter
 " $ cd ~/.vim/bundle/black
 " $ git checkout origin/stable -b stable
  
-
 " Git Integration
 Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -74,16 +74,20 @@ set softtabstop=4
 set shiftwidth=4
 set shiftround
 set expandtab
+syntax on
 
 " PEP8 indentation
 au BufNewFile,BufRead *.py
     \ set tabstop=4 |
     \ set softtabstop=4 |
     \ set shiftwidth=4 |
-    \ set textwidth=79 |
+"    \ set textwidth=79 |
     \ set expandtab |
     \ set autoindent |
     \ set fileformat=unix
+
+" Auto wrap for markdown and reStructuredText
+au BufNewFile,BufRead *.md,*.rst set textwidth=80
 
 " Indentation for FE
 au BufNewFile,BufRead *.js, *.html, *.css
@@ -97,21 +101,14 @@ au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
 set encoding=utf-8
 
-"if has('gui_running')
-"  set background=dark
-"  colorscheme solarized
-"else
-"  colorscheme zenburn
-"endif
 set background=dark
 colorscheme gruvbox-material
+set termguicolors
+call togglebg#map("<F5>")
 
 set guifont=FiraCode\ 9
 
-call togglebg#map("<F5>")
-
 let python_highlight_all=1
-syntax on
 
 " Tabs
 nnoremap tn :tabnew<space>
@@ -133,12 +130,6 @@ if 1
     exe 'inoremap <script> <C-V> <C-G>u' . paste#paste_cmd['i']
     exe 'vnoremap <script> <C-V> ' . paste#paste_cmd['v']
 endif
-
-" Map semicolon to colon
-nnoremap ; :
-nnoremap : ;
-vnoremap ; :
-vnoremap : ;
 
 " Settings for vim-powerline
 set laststatus=2
@@ -181,3 +172,5 @@ autocmd BufWritePre *.py execute ':Black'
 " To run Black on a key press (e.g. F9 below):
 nnoremap <F9> :Black<CR>
 
+set wildignore+=*/venv/*,*/__pycache__/*
+let g:jedi#popup_on_dot = 0
