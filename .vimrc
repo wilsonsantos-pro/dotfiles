@@ -44,9 +44,13 @@ Plugin 'psf/black' " black formatter
 " $ cd ~/.vim/bundle/black
 " $ git checkout origin/stable -b stable
  
+Plugin 'tpope/vim-commentary'
+
 " Git Integration
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
+
+Plugin 'qpkorr/vim-bufkill'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -174,3 +178,7 @@ nnoremap <F9> :Black<CR>
 
 set wildignore+=*/venv/*,*/__pycache__/*
 let g:jedi#popup_on_dot = 0
+
+" Disable Background Color Erase (BCE)
+" https://sunaku.github.io/vim-256color-bce.html
+set t_ut=
