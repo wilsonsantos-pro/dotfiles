@@ -50,6 +50,7 @@ Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
 
+" Close buffer without closing window for split
 Plugin 'qpkorr/vim-bufkill'
 
 " All of your Plugins must be added before the following line
@@ -173,12 +174,17 @@ let g:ctrlp_open_new_file = 't' " open file in new tab
 " Black
 " To run Black on save:
 autocmd BufWritePre *.py execute ':Black'
+autocmd FileType python setlocal completeopt-=preview
 " To run Black on a key press (e.g. F9 below):
 nnoremap <F9> :Black<CR>
 
 set wildignore+=*/venv/*,*/__pycache__/*
 let g:jedi#popup_on_dot = 0
+" Disable the docstring window to popup during completion
+let g:syntastic_mode_map = {"mode": "passive"}
 
 " Disable Background Color Erase (BCE)
 " https://sunaku.github.io/vim-256color-bce.html
 set t_ut=
+set belloff=all
+set signcolumn=yes
