@@ -43,6 +43,9 @@ Plugin 'psf/black' " black formatter
 " After installing black:
 " $ cd ~/.vim/bundle/black
 " $ git checkout origin/stable -b stable
+
+" Autocomplete
+Plugin 'neoclide/coc.nvim', {'branch': 'release'}
  
 Plugin 'tpope/vim-commentary'
 
@@ -188,3 +191,8 @@ let g:syntastic_mode_map = {"mode": "passive"}
 set t_ut=
 set belloff=all
 set signcolumn=yes
+
+" Jump to the last position when reopening a file
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
