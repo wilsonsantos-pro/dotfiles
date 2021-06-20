@@ -182,3 +182,29 @@ let g:jedi#popup_on_dot = 0
 " Disable Background Color Erase (BCE)
 " https://sunaku.github.io/vim-256color-bce.html
 set t_ut=
+
+set belloff=all
+
+" Jump to the last position when reopening a file
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
+
+" Automatic toggling between line number modes
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
+  autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
+augroup END
+
+" Show sign column always
+set signcolumn=yes
+
+" Disable syntastic linting
+let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
+
+" Search down into subfolders
+" Provides tab-completion for all file-related tasks
+set path+=**
+" display all matching files when we tab complete
+set wildmenu
