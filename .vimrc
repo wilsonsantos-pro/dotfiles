@@ -1,8 +1,9 @@
 set number
 set relativenumber
-set colorcolumn=80
-set nocompatible              " required
-filetype off                  " required
+set colorcolumn=88
+set signcolumn=yes      " Show sign column always
+set nocompatible        " required for Vundle
+filetype off            " required for Vundle
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -156,6 +157,9 @@ set noswapfile
 " then press ``>`` several times.
 vnoremap < <gv  " better indentation
 vnoremap > >gv  " better indentation
+" Move the visual selection, respecting indentation
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
 
 " Hide file in NERDTree
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
@@ -197,9 +201,6 @@ augroup numbertoggle
   autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
   autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
 augroup END
-
-" Show sign column always
-set signcolumn=yes
 
 " Disable syntastic linting
 let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
