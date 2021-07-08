@@ -32,6 +32,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'vim-syntastic/syntastic' " syntax checking (several languages)
 Plugin 'yaunj/vim-yara'
+Plugin 'lark-parser/vim-lark-syntax'
 
 " Python stuff
 Plugin 'vim-scripts/indentpython.vim'
