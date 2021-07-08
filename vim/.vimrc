@@ -87,13 +87,13 @@ au BufNewFile,BufRead *.py
     \ set tabstop=4 |
     \ set softtabstop=4 |
     \ set shiftwidth=4 |
-"    \ set textwidth=79 |
+    \ set textwidth=88 |
     \ set expandtab |
     \ set autoindent |
     \ set fileformat=unix
 
 " Auto wrap for markdown and reStructuredText
-au BufNewFile,BufRead *.md,*.rst set textwidth=80
+au BufNewFile,BufRead *.md,*.rst set textwidth=88
 
 " Indentation for FE
 au BufNewFile,BufRead *.js, *.html, *.css
@@ -107,9 +107,15 @@ au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
 set encoding=utf-8
 
+if has('termguicolors')
+	set termguicolors
+endif
+
 set background=dark
+let g:gruvbox_material_palette = 'material'
+let g:gruvbox_material_background = 'soft'
 colorscheme gruvbox-material
-set termguicolors
+
 call togglebg#map("<F5>")
 
 set guifont=FiraCode\ 9
