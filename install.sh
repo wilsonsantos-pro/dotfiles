@@ -26,6 +26,7 @@ function install_fish() {
 install_package stow
 
 stow tmux
+stow vifm
 stow vim
 
 install_fish
