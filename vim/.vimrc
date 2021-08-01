@@ -117,7 +117,7 @@ colorscheme gruvbox-material
 
 call togglebg#map("<F5>")
 
-set guifont=FiraCode\ 9
+set guifont=FiraCode\ 11
 
 let python_highlight_all=1
 
