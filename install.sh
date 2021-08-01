@@ -23,10 +23,26 @@ function install_fish() {
     # fish_config colors
 }
 
+function install_kitty() {
+    # https://sw.kovidgoyal.net/kitty/binary/#binary-install
+    curl -s -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
+    # Create a symbolic link to add kitty to PATH (assuming ~/.local/bin is in
+    # your PATH)
+    ln -f -s ~/.local/kitty.app/bin/kitty ~/.local/bin/
+    # Place the kitty.desktop file somewhere it can be found by the OS
+    cp ~/.local/kitty.app/share/applications/kitty.desktop ~/.local/share/applications/
+    # Update the path to the kitty icon in the kitty.desktop file
+    sed -i "s|Icon=kitty|Icon=/home/$USER/.local/kitty.app/share/icons/hicolor/256x256/apps/kitty.png|g" ~/.local/share/applications/kitty.desktop
+}
+
+## Start installation
+
 install_package stow
 
+stow kitty
 stow tmux
 stow vifm
 stow vim
 
 install_fish
+install_kitty
