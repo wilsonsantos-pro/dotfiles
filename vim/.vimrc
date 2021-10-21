@@ -45,7 +45,8 @@ Plugin 'psf/black' " black formatter
 " After installing black:
 " $ cd ~/.vim/bundle/black
 " $ git checkout origin/stable -b stable
- 
+Plugin 'dense-analysis/ale'
+
 Plugin 'tpope/vim-commentary'
 
 " Git Integration
@@ -179,9 +180,9 @@ let g:ctrlp_open_new_file = 't' " open file in new tab
 
 " Black
 " To run Black on save:
-autocmd BufWritePre *.py execute ':Black'
-" To run Black on a key press (e.g. F9 below):
-nnoremap <F9> :Black<CR>
+"autocmd BufWritePre *.py execute ':Black'
+"" To run Black on a key press (e.g. F9 below):
+"nnoremap <F9> :Black<CR>
 
 set wildignore+=*/venv/*,*/__pycache__/*
 let g:jedi#popup_on_dot = 0
@@ -238,3 +239,7 @@ inoremap <C-j> <esc>:m .+1<CR>==
 inoremap <C-k> <esc>:m .-2<CR>==
 nnoremap <leader>k :m .-2<CR>==
 nnoremap <leader>j :m .+1<CR>==
+
+" ALE settings
+nmap <F10> :ALEFix<CR>
+let g:ale_fix_on_save = 1
