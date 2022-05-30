@@ -35,6 +35,11 @@ function install_kitty() {
     sed -i "s|Icon=kitty|Icon=/home/$USER/.local/kitty.app/share/icons/hicolor/256x256/apps/kitty.png|g" ~/.local/share/applications/kitty.desktop
 }
 
+function install_plug() {
+    curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+}
+
 ## Start installation
 
 install_package stow
@@ -46,3 +51,6 @@ stow vim
 
 install_fish
 install_kitty
+install_plug
+
+vim +PlugInstall +qa
