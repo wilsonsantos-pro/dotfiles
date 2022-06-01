@@ -17,7 +17,6 @@ call plug#begin()
 Plug 'tmhedberg/SimpylFold'
 
 " Color schemes
-Plug 'jnurmine/Zenburn'
 Plug 'altercation/vim-colors-solarized'
 Plug 'sainnhe/gruvbox-material'
 
@@ -34,19 +33,10 @@ Plug 'sheerun/vim-polyglot'
 Plug 'vim-syntastic/syntastic' " syntax checking (several languages)
 Plug 'yaunj/vim-yara'
 Plug 'lark-parser/vim-lark-syntax'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'earthly/earthly.vim'
 
-" Python stuff
-Plug 'vim-scripts/indentpython.vim'
-"Plug 'davidhalter/jedi-vim' 
-Plug 'jmcantrell/vim-virtualenv'
-Plug 'petobens/poet-v'
-" Plug 'nvie/vim-flake8'
-Plug 'psf/black' " black formatter
-" After installing black:
-" $ cd ~/.vim/bundle/black
-" $ git checkout origin/stable -b stable
-Plug 'dense-analysis/ale'
+" IDE
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plug 'tpope/vim-commentary'
 
@@ -58,8 +48,6 @@ Plug 'qpkorr/vim-bufkill'
 
 " Golang
 Plug 'fatih/vim-go'
-
-Plug 'earthly/earthly.vim'
 
 " All of your Plugins must be added before the following line
 call plug#end()            " required
@@ -409,4 +397,4 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 
-let g:coc_global_extensions = ['coc-pyright', 'coc-json', 'coc-markdownlint']
+let g:coc_global_extensions = ['coc-pyright', 'coc-json', 'coc-markdownlint', 'coc-go']
