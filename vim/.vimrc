@@ -90,9 +90,9 @@ au BufNewFile,BufRead *.py
 au BufNewFile,BufRead *.md,*.rst set textwidth=88
 
 " Indentation for FE
-au BufNewFile,BufRead *.js, *.html, *.css
-    \ set tabstop=2
-    \ set softtabstop=2
+au BufNewFile,BufRead *.js,*.html,*.css
+    \ set tabstop=2 |
+    \ set softtabstop=2 |
     \ set shiftwidth=2
 
 "Flagging Unnecessary Whitespace
