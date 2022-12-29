@@ -1,6 +1,5 @@
 [MESSAGES CONTROL]
-disable=bad-continuation,
- missing-module-docstring,
+disable=missing-module-docstring,
  missing-class-docstring,
  missing-function-docstring,
  too-few-public-methods
