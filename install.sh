@@ -45,6 +45,7 @@ function install_plug() {
 install_package stow
 
 stow kitty
+stow neovim
 stow tmux
 stow vifm
 stow vim
@@ -54,3 +55,8 @@ install_kitty
 install_plug
 
 vim +PlugInstall +qa
+
+## nvim
+function configure_nvim() {
+    nvim "+MasonInstall black pylint isort pyright mypy"
+}
