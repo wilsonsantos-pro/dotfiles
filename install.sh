@@ -60,3 +60,7 @@ vim +PlugInstall +qa
 function configure_nvim() {
     nvim "+MasonInstall black pylint isort pyright mypy"
 }
+
+# caps lock -> escape
+sudo apt install dconf-cli dconf-editor
+dconf write /org/gnome/desktop/input-sources/xkb-options "['caps:escape']"
