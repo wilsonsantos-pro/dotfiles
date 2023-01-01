@@ -21,3 +21,9 @@ vim.keymap.set('n', '<A-h>', '<C-w>h')
 vim.keymap.set('n', '<A-j>', '<C-w>j')
 vim.keymap.set('n', '<A-k>', '<C-w>k')
 vim.keymap.set('n', '<A-l>', '<C-w>l')
+
+-- easier moving of code blocks
+-- Try to go into visual mode (v), thenselect several lines of code here and
+-- then press ``>`` several times.
+vim.keymap.set('v', '<', '<gv')  -- better indentation
+vim.keymap.set('v', '>', '>gv')  -- better indentation
