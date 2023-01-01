@@ -1,0 +1,23 @@
+---
+# tasks file for neovim
+
+- name: Install prerequisites
+  ansible.builtin.import_tasks: prerequisites.yml
+  run_once: yes
+
+- name: Repo Checkout
+  ansible.builtin.git:
+    repo: https://github.com/neovim/neovim
+    dest: /tmp/neovim
+
+- name: Make
+  community.general.make:
+    chdir: /tmp/neovim
+    params:
+      CMAKE_BUILD_TYPE: Release
+
+- name: Install
+  community.general.make:
+    chdir: /tmp/neovim
+    target: install
+  become: yes

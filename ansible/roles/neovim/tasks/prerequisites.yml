@@ -1,0 +1,20 @@
+---
+# tasks file for installing the prerequisites
+
+- name: Install Ubuntu / Debian packages
+  ansible.builtin.package:
+    name:
+      - ninja-build
+      - gettext
+      - libtool
+      - libtool-bin
+      - autoconf
+      - automake
+      - cmake
+      - g++
+      - pkg-config
+      - unzip
+      - curl
+      - doxygen
+    state: latest
+  when: ansible_facts['os_family']|lower == 'ubuntu'

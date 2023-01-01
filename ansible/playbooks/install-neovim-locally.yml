@@ -1,0 +1,6 @@
+---
+- name: Install lastest Neovim locally
+  hosts: localhost
+
+  roles:
+    - neovim
