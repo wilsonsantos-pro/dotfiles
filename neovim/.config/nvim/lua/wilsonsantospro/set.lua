@@ -3,7 +3,7 @@ vim.opt.mouse = ""
 
 vim.opt.termguicolors = true
 vim.opt.background = "dark"
-vim.cmd("let g:gruvbox_material_background = 'soft'")
+vim.cmd("let g:gruvbox_material_background = 'medium'")
 vim.cmd("let g:gruvbox_material_better_performance = 1")
 vim.cmd("colorscheme gruvbox-material")
 
@@ -45,3 +45,6 @@ vim.opt.updatetime = 50
 -- auto reload
 vim.cmd[[au BufWinEnter *.<fileextension> set updatetime=300 | set ft=<filetype>| set autoread]]
 vim.cmd[[au CursorHold *.<fileextension>  checktime]]
+
+-- Jump to the last position when reopening a file
+vim.cmd[[au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif]]

@@ -1,5 +1,3 @@
--- This file can be loaded by calling `lua require('plugins')` from your init.vim
-
 -- Only required if you have packer configured as `opt`
 vim.cmd [[packadd packer.nvim]]
 
@@ -37,46 +35,35 @@ return require('packer').startup(function(use)
     use { 'Xuyuanp/nerdtree-git-plugin' }
     use { 'airblade/vim-gitgutter' }
 
-    use { 'sophacles/vim-bundle-mako' }
-
-    use { 'neoclide/coc.nvim', branch = 'release' }
+    use { 'sophacles/vim-bundle-mako' }  -- mako templates syntax
 
     use { 'AckslD/nvim-pytrize.lua' }
 
+    -- DAP
     use { 'mfussenegger/nvim-dap' }
     use { 'rcarriga/nvim-dap-ui', requires = {'mfussenegger/nvim-dap'} }
     use { 'mfussenegger/nvim-dap-python' }
 
-	-- use {
-	-- 	'VonHeikemen/lsp-zero.nvim',
-	-- 	requires = {
-	-- 		-- LSP Support
-	-- 		{'neovim/nvim-lspconfig'},
-	-- 		{'williamboman/mason.nvim'},
-	-- 		{'williamboman/mason-lspconfig.nvim'},
+    -- COC
+    -- use {'neoclide/coc.nvim', branch = 'release'}
 
-	-- 		-- Autocompletion
-	-- 		{'hrsh7th/nvim-cmp'},
-	-- 		{'hrsh7th/cmp-buffer'},
-	-- 		{'hrsh7th/cmp-path'},
-	-- 		{'saadparwaiz1/cmp_luasnip'},
-	-- 		{'hrsh7th/cmp-nvim-lsp'},
-	-- 		{'hrsh7th/cmp-nvim-lua'},
+    -- Cmp
+    use "hrsh7th/nvim-cmp"
+    use "hrsh7th/cmp-buffer"
+    use "hrsh7th/cmp-path"
+	use "saadparwaiz1/cmp_luasnip"
+	use "hrsh7th/cmp-nvim-lsp"
+	use "hrsh7th/cmp-nvim-lua"
 
-	-- 		-- Snippets
-	-- 		{'L3MON4D3/LuaSnip'},
-	-- 		{'rafamadriz/friendly-snippets'},
-	-- 	}
-	-- }
-    -- use 'dense-analysis/ale'
-    -- use 'prabirshrestha/vim-lsp'
-    -- use 'rhysd/vim-lsp-ale'
+	-- Snippets
+    use "L3MON4D3/LuaSnip"
+    use "rafamadriz/friendly-snippets"
 
-    --use 'paradoxxxzero/pyls-isort'
-    --use 'python-lsp/python-lsp-black'
-
-    --use 'lukas-reineke/lsp-format.nvim'
-
-    --use 'mfussenegger/nvim-lint'
-
+    -- LSP
+	use "neovim/nvim-lspconfig"
+    use "williamboman/mason.nvim"
+    use "williamboman/mason-lspconfig.nvim"
+	use "jose-elias-alvarez/null-ls.nvim"
+    use "RRethy/vim-illuminate"
+    use "folke/neodev.nvim"
 end)
