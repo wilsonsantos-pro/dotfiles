@@ -1,0 +1,9 @@
+---
+- name: Debug 
+  hosts: localhost
+
+  tasks:
+
+    - name: Print OS
+      ansible.builtin.debug:
+        msg: "{{ ansible_facts['os_family']|lower }}"

@@ -15,6 +15,8 @@ function install_fish() {
     # set -g theme_nerd_fonts yes
     stow fish
 
+    curl -L https://get.oh-my.fish | fish
+
     # Themes:
     # 1) install oh-my-fish
     # curl -L https://get.oh-my.fish | fish
@@ -35,9 +37,21 @@ function install_kitty() {
     sed -i "s|Icon=kitty|Icon=/home/$USER/.local/kitty.app/share/icons/hicolor/256x256/apps/kitty.png|g" ~/.local/share/applications/kitty.desktop
 }
 
-function install_plug() {
+function install_vim() {
     curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+    vim +PlugInstall +qa
+}
+
+function install_nvim() {
+    # install packer
+    git clone --depth 1 https://github.com/wbthomason/packer.nvim \
+        ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+
+    pushd ./ansible/
+    ansible -K playbooks/install-neovim-locally.yml
+    popd
 }
 
 ## Start installation
@@ -52,14 +66,8 @@ stow vim
 
 install_fish
 install_kitty
-install_plug
-
-vim +PlugInstall +qa
-
-## nvim
-function configure_nvim() {
-    nvim "+MasonInstall black pylint isort pyright mypy"
-}
+install_vim
+install_nvim
 
 # caps lock -> escape
 sudo apt install dconf-cli dconf-editor

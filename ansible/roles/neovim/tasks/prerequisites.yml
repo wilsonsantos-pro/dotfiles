@@ -17,4 +17,5 @@
       - curl
       - doxygen
     state: latest
-  when: ansible_facts['os_family']|lower == 'ubuntu'
+  when: ansible_facts['os_family']|lower == 'debian'
+  become: yes
