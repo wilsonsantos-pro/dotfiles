@@ -54,6 +54,10 @@ function install_nvim() {
     popd
 }
 
+function install_ansible () {
+    pip install ansible-lint
+}
+
 ## Start installation
 
 install_package stow

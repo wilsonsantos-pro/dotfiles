@@ -3,7 +3,7 @@
 
 - name: Install prerequisites
   ansible.builtin.import_tasks: prerequisites.yml
-  run_once: yes
+  run_once: true
 
 - name: Repo Checkout
   ansible.builtin.git:
@@ -20,4 +20,4 @@
   community.general.make:
     chdir: /tmp/neovim
     target: install
-  become: yes
+  become: true

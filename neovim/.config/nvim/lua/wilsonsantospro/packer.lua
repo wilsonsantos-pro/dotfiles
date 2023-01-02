@@ -72,7 +72,9 @@ return require('packer').startup(function(use)
     use { 'Xuyuanp/nerdtree-git-plugin' }
     use { 'airblade/vim-gitgutter' }
 
+    -- Extra syntax
     use { 'sophacles/vim-bundle-mako' }  -- mako templates syntax
+    use { 'pearofducks/ansible-vim' }   -- helps identify with filetype yaml.ansible
 
     use { 'AckslD/nvim-pytrize.lua' }
 

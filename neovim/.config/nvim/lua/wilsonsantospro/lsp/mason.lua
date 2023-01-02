@@ -8,6 +8,7 @@ local servers = {
 	-- "tsserver",
 	"pyright",
 	"jsonls",
+    "ansiblels",
 	-- "yamlls",
 }
 
