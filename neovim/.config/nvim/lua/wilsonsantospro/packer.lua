@@ -49,6 +49,7 @@ return require('packer').startup(function(use)
 	}
 
     use 'sainnhe/gruvbox-material'
+    use 'navarasu/onedark.nvim'
     use {
         'nvim-lualine/lualine.nvim',
         requires = { 'kyazdani42/nvim-web-devicons', opt = true }
@@ -75,6 +76,7 @@ return require('packer').startup(function(use)
     -- Extra syntax
     use { 'sophacles/vim-bundle-mako' }  -- mako templates syntax
     use { 'pearofducks/ansible-vim' }   -- helps identify with filetype yaml.ansible
+    -- consider using: https://github.com/sheerun/vim-polyglot
 
     use { 'AckslD/nvim-pytrize.lua' }
 
