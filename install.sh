@@ -50,8 +50,10 @@ function install_nvim() {
         ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
     pushd ./ansible/
-    ansible -K playbooks/install-neovim-locally.yml
+    ansible-playbook -K playbooks/install-neovim-locally.yml
     popd
+
+    install_package ripgrep
 }
 
 function install_ansible () {
