@@ -8,3 +8,5 @@ onedark.setup {
     style = 'warmer'
 }
 onedark.load()
+
+vim.cmd("colorscheme onedark")

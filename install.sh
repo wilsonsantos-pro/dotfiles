@@ -60,6 +60,13 @@ function install_ansible () {
     pip install ansible-lint
 }
 
+function install_tmux () {
+    # install Tmux Plugin Manager: https://github.com/tmux-plugins/tpm
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+    # install onedark colorscheme for tmux: https://github.com/odedlaz/tmux-onedark-theme
+    echo "Open tmux.conf and then press 'prefix + I' to fetch the plugin"
+}
+
 ## Start installation
 
 install_package stow
@@ -74,6 +81,7 @@ install_fish
 install_kitty
 install_vim
 install_nvim
+install_tmux
 
 # caps lock -> escape
 sudo apt install dconf-cli dconf-editor
