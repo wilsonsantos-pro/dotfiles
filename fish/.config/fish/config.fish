@@ -6,6 +6,9 @@ set -g theme_powerline_fonts yes
 #set theme_color_scheme gruvbox
 #theme_gruvbox dark soft
 
+set -x LC_ALL en_US.UTF-8
+set -x LC_CTYPE en_US.UTF
+
 alias cddotfiles "cd ~/dotfiles/"
 alias cdcosmicpython "cd ~/github/python_architecture_patterns_book/"
 
