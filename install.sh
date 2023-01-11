@@ -18,6 +18,7 @@ function install_fish() {
     curl -L https://get.oh-my.fish | fish
 
     # Themes:
+    fisher install rkbk60/onedark-fish
     # 1) install oh-my-fish
     # curl -L https://get.oh-my.fish | fish
     # 2) install bobthefish
