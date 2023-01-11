@@ -50,8 +50,11 @@ function install_nvim() {
     git clone --depth 1 https://github.com/wbthomason/packer.nvim \
         ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
+    # install ansible
+    python3 -m pip install -U --user ansible
+
     pushd ./ansible/
-    ansible-playbook -K playbooks/install-neovim-locally.yml
+    ansible-playbook -K playbooks/install-neovim-locally-playbook.yml
     popd
 
     install_package ripgrep
