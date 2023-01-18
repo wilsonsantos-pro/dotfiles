@@ -67,6 +67,8 @@ return require('packer').startup(function(use)
     use { 'voldikss/vim-floaterm' }
 	use { 'tpope/vim-fugitive' }
     use { 'tpope/vim-commentary' }
+    use { 'tpope/vim-surround' }
+    use { 'qpkorr/vim-bufkill' }
 
     use { 'preservim/nerdtree' }
     use { 'ryanoasis/vim-devicons' }

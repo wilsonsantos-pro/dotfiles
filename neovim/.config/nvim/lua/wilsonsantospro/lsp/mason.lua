@@ -9,7 +9,7 @@ local servers = {
 	"pyright",
 	"jsonls",
     "ansiblels",
-	-- "yamlls",
+	"yamlls",
 }
 
 local settings = {
