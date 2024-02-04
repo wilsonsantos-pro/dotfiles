@@ -9,6 +9,8 @@ set -g theme_powerline_fonts yes
 set -x LC_ALL en_US.UTF-8
 set -x LC_CTYPE en_US.UTF
 
+set -x GO111MODULE on
+
 alias cddotfiles "cd ~/dotfiles/"
 alias cdcosmicpython "cd ~/github/python_architecture_patterns_book/"
 
