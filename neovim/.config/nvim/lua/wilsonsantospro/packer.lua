@@ -119,4 +119,6 @@ return require("packer").startup(function(use)
 			require("nvim-autopairs").setup({})
 		end,
 	})
+
+	use("schickling/vim-bufonly")
 end)
