@@ -17,8 +17,9 @@ null_ls.setup({
 		formatting.black.with({ extra_args = { "--fast" } }),
 		formatting.isort,
 		formatting.stylua,
-        formatting.rustfmt,
-        diagnostics.pylint,
+		formatting.rustfmt,
+		formatting.gofmt,
+		formatting.goimports,
 		diagnostics.pylint,
 	},
 	-- you can reuse a shared lspconfig on_attach callback here
