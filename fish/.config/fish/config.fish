@@ -28,3 +28,7 @@ if status is-interactive
 
     set_onedark $onedark_options
 end
+
+# Created by `pipx` on 2024-03-13 20:45:33
+set PATH $PATH /home/wilson/.local/bin /usr/local/go/bin
+source "$HOME/.cargo/env.fish"
