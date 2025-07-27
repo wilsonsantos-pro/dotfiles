@@ -85,14 +85,6 @@ return require("packer").startup(function(use)
 
     use({ "kenn7/vim-arsync" }) -- async remote file transfer
 
-    -- DAP
-    use({ "mfussenegger/nvim-dap" })
-    use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
-    use({ "mfussenegger/nvim-dap-python" })
-
-    -- COC
-    -- use {'neoclide/coc.nvim', branch = 'release'}
-
     -- Cmp
     use("hrsh7th/nvim-cmp")
     use("hrsh7th/cmp-buffer")
