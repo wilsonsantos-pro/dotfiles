@@ -5,7 +5,7 @@ local servers = {
     "bashls",
     -- "cssls",
     -- "html",
-    "tsserver",
+    "ts_ls",
     "pyright",
     "jsonls",
     "ansiblels",
